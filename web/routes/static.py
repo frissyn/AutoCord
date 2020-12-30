@@ -3,6 +3,8 @@ import flask
 from web import app
 
 from bot import autocord
+
+from bot.util import get_bots
 from bot.util import permission_map
 
 
@@ -23,7 +25,8 @@ def information():
 
 @app.route("/library")
 def library():
-    return flask.render_template("library.html")
+    bots = get_bots(split=False)
+    return flask.render_template("library.html", bots=bots)
 
 
 @app.route("/b/<int:botID>")
