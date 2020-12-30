@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif&family=Nunito+Sans:wght@400;600&display=swap');
+
+html {
+    color: whitesmoke;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+hr {background-color: #24272c}
+
+.body {
+    min-height: 100vh;
+    padding-top: 4rem;
+    padding-bottom: 10rem;
+    background-color: #191b1f;
+}
+
+.title, .subtitle, .p-icon, .wtxt {color: whitesmoke}
+.content {color: whitesmoke}
+
+.darken {
+    color: whitesmoke;
+    border-color: #191b1f;
+    background-color: #191b1f;
+}
+
+.darkener {
+    color: white;
+    background-color: #191b1f;
+}
+
+.dark-line {
+    border-bottom: 1px solid #9d9d9d;
+}
+
+.block {
+    text-align: left;
+    border-bottom: 1px solid #191b1f;
+}
+
+.hide {
+    display: none;
+}

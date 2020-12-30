@@ -1,0 +1,70 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}Library - AutoCord{% endblock %}
+
+{% block body %}
+<section class="body">
+<div class="container">
+    <article class="message is-black">
+        <div class="message-header">
+            <p><i class="mdi mdi-discord"></i>&nbsp;{{ bot.display_name }}</p>
+        </div>
+        <div class="message-body">
+        <div class="columns">
+            <div class="column is-one-fifth">
+                <figure class="image is-128x128">
+                    <img class="is-rounded"src="{{ str(bot.avatar_url) }}">
+                </figure>
+            </div>
+            <div class="column">
+                <h4 class="is-4"><b>Bot Name:</b>&nbsp;{{ bot.display_name }}</h4>
+                <h4 class="is-4">
+                    <b>Bot Status:</b>&nbsp;
+                    <span class="tag is-{{ status_color(bot.status) }}">{{ str(bot.status).title() }}</span>
+                </h4>
+                <h4 class="is-4"><b>Bot Prefix:</b>&nbsp; Unknown</h4>
+                <h4 class="is-4"><b>Bot Permissions:</b>&nbsp;{{ permNum }}</h4>
+                <h4 class="is-4"><b>Bot Description:</b></h4>
+                <h4 class="is-4">Unknown</h4>
+            </div>
+        </div>
+        </div>
+    </article>
+
+    <article class="message is-info">
+        <div class="message-header">
+            <p><i class="mdi mdi-discord"></i>&nbsp;Permissions Map</p>
+            <p class="is-right">Value: <b>{{ permNum }}</b></p>
+        </div>
+        <div class="message-body">
+        <div class="columns">
+            <div class="column">
+                {% for k, v in perms[:12] %}
+                <h4 class="is-4">
+                    <b>{{k}}:</b>
+                    <span class="tag is-{{ status_color(v) }}">{{v}}</span>
+                </h4>
+                {% endfor %}
+            </div>
+            <div class="column">
+                {% for k, v in perms[12:23] %}
+                <h4 class="is-4">
+                    <b>{{k}}:</b>
+                    <span class="tag is-{{ status_color(v) }}">{{v}}</span>
+                </h4>
+                {% endfor %}
+            </div>
+            <div class="column">
+                {% for k, v in perms[23:] %}
+                <h4 class="is-4">
+                    <b>{{k}}:</b>
+                    <span class="tag is-{{ status_color(v) }}">{{v}}</span>
+                </h4>
+                {% endfor %}
+            </div>
+        </div>
+        </div>
+    </article>
+</div>
+</section>
+{% endblock %}

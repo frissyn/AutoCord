@@ -1,0 +1,92 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}Library - AutoCord{% endblock %}
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="../static/css/accordion.css">
+{% endblock %}
+
+{% block body %}
+<section class="body">
+<div class="container">
+{% set bots = get_bots(split=False) %}
+
+<h1 class="title">User Bot Library</h1>
+
+<div class="columns">
+    <div class="column is-half">
+        <div class="field">
+        <p class="control has-icons-left">
+            <input id="bot-search" class="input" placeholder="Search Bots" onkeyup="search()">
+            <span class="icon is-small is-left">
+                <i class="mdi mdi-robot"></i>
+            </span>
+        </p>
+        </div>
+    </div>
+    <div class="column is-half">
+        <div class="field has-addons">
+        <p class="control">
+            <button class="button is-dark is-active">
+                <span class="icon is-small"><i class="p-icon mdi mdi-book"></i></span>
+                <span>Sort By:</span>
+            </button>
+        </p>
+        <p class="control">
+            <div class="select is-dark">
+            <select>
+                <option>A to Z</option>
+                <option>Status</option>
+            </select>
+            </div>
+        </p>
+        <p class="control">
+            <button class="button is-dark">
+                <span class="icon">
+                    <i class="p-icon mdi mdi-format-vertical-align-bottom"></i>
+                </span>
+                <span>Reverse Table Order</span>
+            </button>
+        </p>
+        <p class="control">
+            <button class="button is-danger">
+                <span class="icon">
+                    <i class="p-icon mdi mdi-lock-reset"></i>
+                </span>
+                <span>Reset Filters</span>
+            </button>
+        </p>
+        </div>
+    </div>
+</div>
+
+
+<table id="bot-table" class="table darken is-fullwidth">
+    <thead>
+    <tr>
+        <th style="color: whitesmoke"><abbr title="Profile Picture">PFP</abbr></th>
+        <th style="color: whitesmoke">Bot Name</th>
+        <th style="color: whitesmoke">Homepage</th>
+        <th style="color: whitesmoke">Bot Status</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {% for bot in bots %}
+    <tr>
+        <td>
+        <figure class="image is-32x32">
+            <img class="is-rounded" src="{{ str(bot.avatar_url) }}">
+        </figure>
+        </td>
+        <td>{{ bot.name }}</td>
+        <td><a class="button is-small is-info" href="/b/{{ bot.id }}">Visit Homepage</a></td>
+        <td><span class="tag is-{{ status_color(bot.status) }}">{{ str(bot.status).title() }}</span></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<script src="../static/js/search.js"></script>
+{% endblock %}

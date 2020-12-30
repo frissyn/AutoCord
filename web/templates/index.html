@@ -1,0 +1,51 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}AutoCord{% endblock %}
+
+{% block nav %}{% endblock %}
+{% block body %}
+<section class="hero is-black is-fullheight">
+    <div class="hero-head">
+    <nav class="navbar is-black" role="navigation" aria-label="main navigation">
+        <div class="container">
+        <div class="navbar-brand">
+            <a id="b" class="navbar-burger burger" data-target="navbar">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div id="n" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="/">Home</a>
+                <a class="navbar-item" href="/info">Information</a>
+                <a class="navbar-item" href="/library">Library</a>
+                <a class="navbar-item" href="//github.com/repl-it-discord/AutoCord">GitHub</a>
+            </div>
+
+            <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="buttons">
+                <a class="button is-info" style="color: #000" href="/login">
+                    {% if not current_user.is_authenticated %}
+                    <i class="mdi mdi-discord"></i>&nbsp;<strong>Login via Discord</strong>
+                    {% else %}
+                    <i class="mdi mdi-discord"></i>&nbsp;<strong>Dashboard</strong>
+                    {% endif %}
+                </a>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </nav>
+    </div>
+    <div class="hero-body">
+        <div class="container has-text-centered">
+        <img src="../static/img/icon.png" alt="logo">
+        <h1 class="title">AutoCord&trade;</h1>
+        <h2 class="subtitle">User Bot manager for the Replit Discord Server.</h2>
+        </div>
+    </div>
+</section>
+{% endblock %}

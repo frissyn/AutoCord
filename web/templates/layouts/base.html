@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% block head %}
+    <title>{% block title %}AutoCord{% endblock %}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="../static/img/icon.png">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/support.css">
+    <link rel="stylesheet" href="//cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
+    {% endblock %}
+</head>
+
+<body>
+{% block nav %}
+<nav class="navbar is-black" role="navigation" aria-label="main navigation">
+    <div class="container">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+            <img src="../static/img/icon.png" width="28" height="28">
+        </a>
+        <a id="b" class="navbar-burger burger" data-target="navbar">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div id="n" class="navbar-menu">
+        <div class="navbar-start">
+            <a class="navbar-item" href="/">Home</a>
+            <a class="navbar-item" href="/info">Information</a>
+            <a class="navbar-item" href="/library">Library</a>
+            <a class="navbar-item" href="//github.com/repl-it-discord/AutoCord">GitHub</a>
+        </div>
+
+        <div class="navbar-end">
+        <div class="navbar-item">
+            <div class="buttons">
+            <a class="button is-info" style="color: #000" href="/login">
+                {% if not current_user.is_authenticated %}
+                <i class="mdi mdi-discord"></i>&nbsp;<strong>Login via Discord</strong>
+                {% else %}
+                <i class="mdi mdi-discord"></i>&nbsp;<strong>Dashboard</strong>
+                {% endif %}
+            </a>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</nav>
+{% endblock %}
+
+{% block body %}{% endblock %}
+
+{% block nav_action %}
+<script>
+window.addEventListener('DOMContentLoaded', function(e) {
+    var burger = document.getElementById('b');
+    var menu = document.getElementById('n');
+
+    burger.addEventListener('click', function() {
+        burger.classList.toggle('is-active');
+        menu.classList.toggle('is-active');
+    });
+});
+</script>
+{% endblock %}
+</body>
+
+</html>

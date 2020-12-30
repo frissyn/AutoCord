@@ -1,0 +1,23 @@
+# -- PY Stuff --
+__pycache__/
+*.py[cod]
+*$py.class
+build/
+develop-eggs/
+dist/
+sdist/
+wheels/
+share/python-wheels/
+*.egg-info/
+
+
+# -- Flask Stuff --
+instance/
+.webassets-cache
+
+
+#  -- ENV Stuff --
+.env
+.venv
+env/
+venv/
