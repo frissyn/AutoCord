@@ -14,7 +14,7 @@
 <h1 class="title">User Bot Library</h1>
 
 <div class="columns">
-    <div class="column is-half">
+    <div class="column is-three-quarters">
         <div class="field">
         <p class="control has-icons-left">
             <input id="bot-search" class="input" placeholder="Search Bots" onkeyup="search()">
@@ -24,7 +24,7 @@
         </p>
         </div>
     </div>
-    <div class="column is-half">
+    <div class="column">
         <div class="field has-addons">
         <p class="control">
             <button class="button is-dark is-active">
@@ -35,26 +35,10 @@
         <p class="control">
             <div class="select is-dark">
             <select>
-                <option>A to Z</option>
-                <option>Status</option>
+                <option onclick="sortByStatus()">Status</option>
+                <option onclick="sortByABC()"">A to Z</option>
             </select>
             </div>
-        </p>
-        <p class="control">
-            <button class="button is-dark">
-                <span class="icon">
-                    <i class="p-icon mdi mdi-format-vertical-align-bottom"></i>
-                </span>
-                <span>Reverse Table Order</span>
-            </button>
-        </p>
-        <p class="control">
-            <button class="button is-danger">
-                <span class="icon">
-                    <i class="p-icon mdi mdi-lock-reset"></i>
-                </span>
-                <span>Reset Filters</span>
-            </button>
         </p>
         </div>
     </div>
