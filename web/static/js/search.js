@@ -11,8 +11,8 @@ function sortByABC() {
         for (var i = 1; i < (rows.length - 1); i++) {
             shouldSwitch = false;
 
-            var x = rows[i].getElementsByTagName("td")[0];
-            var y = rows[i + 1].getElementsByTagName("td")[0];
+            var x = rows[i].getElementsByTagName("td")[1];
+            var y = rows[i + 1].getElementsByTagName("td")[1];
 
             if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
                 shouldSwitch = true; break;
@@ -24,11 +24,13 @@ function sortByABC() {
             switching = true;
         }
     }
+    console.log("sortByABC complete.");
 }
 
 
 function sortByStatus() {
     alert("Not Yet Implemented.");
+    console.log("sortByStatus complete.");
 }
 
 
