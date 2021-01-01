@@ -21,7 +21,7 @@ with open("web/db/admins.txt", "r") as fh:
     names = fh.read()
     ADMINS = [n.split("--")[0] for n in names.split("\n")]
 
-with open("bot/permissions.txt", "r") as fh:
+with open("web/db/permissions.txt", "r") as fh:
     perms = fh.read()
     PERMISSIONS = [p for p in perms.split("\n")]
 
