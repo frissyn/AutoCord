@@ -13,9 +13,6 @@ class ProConfig(object):
     SQLALCHEMY_DATABASE_URI = os.environ["DATABASE_URL"]
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-    UPLOAD_EXTENSIONS = [".jpg", ".png", ".gif"]
-    MAX_CONTENT_LENGTH = 3 * 1000 * 1000
-
 
 class DevConfig(ProConfig):
     DEBUG = True
