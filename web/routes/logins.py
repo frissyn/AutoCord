@@ -5,6 +5,7 @@ from web import db
 from web import app
 
 from web.models import User
+from web.models import is_admin
 
 from flask_login import login_user
 from flask_login import logout_user
@@ -41,6 +42,7 @@ def login_callback():
     user.id_type = "Discord"
     user.name = d["username"]
     user.pfp = authcord.IMG_BASE.format(d["id"], d["avatar"], 128)
+    user.admin = is_admin(d["id"])
 
     db.session.commit()
     login_user(user)

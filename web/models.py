@@ -17,6 +17,7 @@ def is_admin(i: str):
 class User(db.Model, UserMixin):
     id = db.Column(db.String, primary_key=True)
     name = db.Column(db.String(32), nullable=False)
+    pfp = db.Column(db.String, nullable=False)
     is_admin = db.Column(db.Boolean, nullable=False, default=False)
 
     timestamp = db.Column(db.DateTime, default=datetime.utcnow(), nullable=False)

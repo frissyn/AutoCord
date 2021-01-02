@@ -4,6 +4,22 @@
 
 {% block body %}
 <section class="body">
-
+<div class="container">
+    <div class="columns">
+        <div class="column is-one-fifth">
+            <figure class="is-128x128">
+                <img src="{{ current_user.pfp }}" alt="PFP" class="image">
+            </figure>
+        </div>
+        <div class="column">
+            <article class="message is-info is-bold">
+            <div class="message-body">
+                <h1 class="title">Welcome {{ current_user.name }}</h1>
+                <h3 class="subtitle">Your AutoCord Dashboard</h3>
+            </div>
+            </article>
+        </div>
+    </div>
+</div>
 </section>
 {% endblock %}
