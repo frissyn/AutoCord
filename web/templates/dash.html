@@ -1,18 +1,31 @@
 {% extends "layouts/base.html" %}
 
-{% block title %}Your Dashboard - AutoCord{% endblock %} 
+{% block title %}Your Dashboard - AutoCord{% endblock %}
 
 {% block body %}
 <section class="body">
 <div class="container">
-    <div class="columns">
-        <div class="column">
-            <figure class="image is-128x128">
-                <img class="is-rounded" src="{{ current_user.pfp }}">
-            </figure>
-            <h1 class="title">Welcome {{ current_user.name }}!</h1>
-            <h3 class="subtitle">Your AutoCord Dashboard</h3>
+    <div class="card" style="background-color: #0a0a0a">
+    <div class="card-content">
+        <div class="media">
+            <div class="media-left">
+                <figure class="image is-64x64">
+                    <img class="is-rounded" src="{{ current_user.pfp }}">
+                </figure>
+            </div>
+            <div class="media-content v">
+                <p class="title">Welcome {{ current_user.name }}!</p>
+                <p class="subtitle">Your AutoCord Dashboard</p>
+            </div>
+            <div class="media-right">
+                <h3 class="is-3">
+                    <b>Admin:</b>&nbsp;
+                    <span class="tag is-{{ status_color(current_user.is_admin) }}">
+                    {{ current_user.is_admin }}</span>
+                </h3>
+            </div>   
         </div>
+    </div>
     </div>
 </div>
 </section>
