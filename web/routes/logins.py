@@ -42,7 +42,7 @@ def login_callback():
     user.id_type = "Discord"
     user.name = d["username"]
     user.pfp = authcord.IMG_BASE.format(d["id"], d["avatar"], 128)
-    user.admin = is_admin(d["id"])
+    user.is_admin = is_admin(d["id"])
 
     db.session.commit()
     login_user(user)
