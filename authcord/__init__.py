@@ -53,9 +53,23 @@ def exchange_code(code: str):
     }
     headers = {"Content-Type": "application/x-www-form-urlencoded"}
 
-    r = requests.post(
-        "https://discord.com/api/v8/oauth2/token", data=data, headers=headers
-    )
+    r = requests.post(f"{API_ENDPOINT}/oauth2/token", data=data, headers=headers)
+    r.raise_for_status()
+    return r.json()
+
+
+def refresh_token(refresh_token):
+    data = {
+        "client_id": CLIENT_ID,
+        "client_secret": CLIENT_SECRET,
+        "grant_type": "refresh_token",
+        "refresh_token": refresh_token,
+        "redirect_uri": os.environ["REDIRECT_URI"],
+        "scope": "identify"
+    }
+    headers = {"Content-Type": "application/x-www-form-urlencoded"}
+
+    r = requests.post(f"{API_ENDPOINT}/oauth2/token", data=data, headers=headers)
     r.raise_for_status()
     return r.json()
 
