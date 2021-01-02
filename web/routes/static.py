@@ -37,9 +37,7 @@ def bot_page(botID):
     perms = permission_map(botID)
     permNum = bot.guild_permissions.value
 
-    return flask.render_template(
-        "bot.html", bot=bot, perms=perms, permNum=permNum
-    )
+    return flask.render_template("bot.html", bot=bot, perms=perms, permNum=permNum)
 
 
 @app.route("/rules")

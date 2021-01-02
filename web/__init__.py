@@ -10,7 +10,7 @@ from threading import Thread
 
 app = Flask(__name__)
 app.config.from_object(ProConfig)
-#app.config.from_object(DevConfig)
+# app.config.from_object(DevConfig)
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
@@ -33,11 +33,5 @@ except Exception:
 
 
 server = Thread(
-    target=app.run,
-    args=(),
-    kwargs={
-        "host": "0.0.0.0",
-        "port": 8080,
-        "threaded": True
-    }
+    target=app.run, args=(), kwargs={"host": "0.0.0.0", "port": 8080, "threaded": True}
 )

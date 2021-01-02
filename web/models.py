@@ -6,6 +6,7 @@ from datetime import datetime
 
 from flask_login import UserMixin
 
+
 def is_admin(i: str):
     if i in ADMINS:
         return True
@@ -30,7 +31,7 @@ class UserBot(db.Model):
     name = db.Column(db.String(64), nullable=False)
     client_id = db.Column(db.String(18), nullable=False)
 
-    user_id = db.Column(db.String, db.ForeignKey('user.id'))
+    user_id = db.Column(db.String, db.ForeignKey("user.id"))
 
     def __repr__(self):
         return f"<UserBot @name:{self.name}, @user: {self.user_id}>"

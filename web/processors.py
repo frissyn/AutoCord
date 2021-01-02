@@ -8,7 +8,7 @@ def status_color(s):
         "dnd": "danger",
         "idle": "warning",
         "True": "primary",
-        "False": "danger"
+        "False": "danger",
     }
 
     try:
