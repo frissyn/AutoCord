@@ -29,7 +29,7 @@
         <div class="container">
             <article class="message is-dark">
                 <div class="message-header">
-                    <p>Your  Bots</p>
+                    <p>Your Bots</p>
                 </div>
                 <div class="message-body darken">
                     {% if len(current_user.bots) == 0 %}
@@ -43,6 +43,32 @@
                         <a class="button is-info" href="/b/{{ bot.client_id }}">{{ bot.name }}</a>
                     {% endfor %}
                     {% endif %}
+                </div>
+            </article>
+
+            <article class="message is-info">
+                <div class="message-header">
+                    <p>Your Notifications</p>
+                </div>
+                <div class="message-body darken">
+                    {% for notif in current_user.notifications %}
+                    <div class="modal">
+                        <div class="modal-background"></div>
+                        <div class="modal-card">
+                            <header class="modal-card-head">
+                                <p class="modal-card-title">{{ notif.title }}</p>
+                                <button class="delete" aria-label="close"></button>
+                            </header>
+                            <section class="modal-card-body">
+                                {{ notif.body }}
+                            </section>
+                            <footer class="modal-card-foot">
+                                <button class="button is-primary">Clear Notification</button>
+                                <button class="button">Canel</button>
+                            </footer>
+                        </div>
+                    </div>
+                    {% endfor %}
                 </div>
             </article>
         </div>
