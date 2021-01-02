@@ -55,6 +55,6 @@ for m in modules:
     flag2 = m.endswith("__init__.py")
 
     if flag1 and not flag2:
-        m = basename(m).replace('.py', '')
+        m = basename(m).replace(".py", "")
 
         exec(f"from bot import {m}")

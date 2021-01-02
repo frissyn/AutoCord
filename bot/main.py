@@ -1,5 +1,5 @@
-#import json
-#import asyncio
+# import json
+# import asyncio
 import discord
 
 from bot import COLOR
@@ -17,15 +17,15 @@ async def bot_page(ctx, m: discord.Member):
     if m.bot:
         em = Embed(
             title=f"{m.display_name}'s InfoPage",
-            description=f"You can find **{m.display_name}**'s InfoPage" +
-            f"\nhere at https://autocord.repl.co/b/{m.id}",
-            color=COLOR
+            description=f"You can find **{m.display_name}**'s InfoPage"
+            + f"\nhere at https://autocord.repl.co/b/{m.id}",
+            color=COLOR,
         )
     else:
         em = Embed(
             title=f"Lookup Error Occurred",
             description=f"**{m.display_name}** is not a Bot User!",
-            color=COLOR
+            color=COLOR,
         )
 
     await ctx.send(embed=em)
@@ -35,9 +35,9 @@ async def bot_page(ctx, m: discord.Member):
 async def library(ctx):
     em = Embed(
         title="User Bot Library",
-        description="You can find the full library of User Bots " +
-        "here at https://autocord.repl.co/library",
-        color=COLOR
+        description="You can find the full library of User Bots "
+        + "here at https://autocord.repl.co/library",
+        color=COLOR,
     )
 
     await ctx.send(embed=em)
@@ -54,7 +54,8 @@ async def permissions(ctx, m: discord.Member):
 
         em = Embed(
             title=f"Permission Map for **{m.display_name}**",
-            description=perm_str, color=COLOR
+            description=perm_str,
+            color=COLOR,
         )
 
         await ctx.send(embed=em)
@@ -62,7 +63,7 @@ async def permissions(ctx, m: discord.Member):
         em = Embed(
             title=f"Lookup Error Occurred",
             description=f"**{m.display_name}** is not a Bot User!",
-            color=COLOR
+            color=COLOR,
         )
 
         await ctx.send(embed=em)
@@ -88,7 +89,7 @@ async def get_all(ctx):
 
     idle = []
     active = []
-    
+
     for bot in bots:
         flag = str(bot.status)
 

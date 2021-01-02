@@ -9,7 +9,7 @@ def get_bots(split=True):
 
     idle = []
     active = []
-    
+
     for bot in bots:
         flag = str(bot.status)
 
@@ -30,13 +30,13 @@ def permission_map(i: int):
     guild = autocord.get_guild(437048931827056642)
     bot = guild.get_member(i)
     bot_perms = bot.guild_permissions
-    
+
     for perm in PERMISSIONS:
         p = bot_perms.__getattribute__(perm)
-        #print(f"{perm}: {p}")
+        # print(f"{perm}: {p}")
 
         perm_map[perm] = p
-    
+
     del perm_map["value"]
 
     return [(k, v) for k, v in perm_map.items()]
