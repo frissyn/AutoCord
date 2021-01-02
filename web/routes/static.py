@@ -45,3 +45,8 @@ def bot_page(botID):
 @app.route("/rules")
 def rules_page():
     return flask.render_template("rules.html")
+
+
+@app.route("/submit")
+def submission_page():
+    return flask.render_template("submit.html")
