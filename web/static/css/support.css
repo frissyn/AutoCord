@@ -17,6 +17,8 @@ hr {background-color: #24272c}
 .title, .subtitle, .p-icon, .wtxt {color: whitesmoke}
 .content {color: whitesmoke}
 
+.btxt {color: #191b1f}
+
 .darken {
     color: whitesmoke;
     border-color: #191b1f;
