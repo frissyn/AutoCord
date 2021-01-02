@@ -19,7 +19,7 @@ def status_color(s):
 
 @app.context_processor
 def inject_builtins():
-    return dict(int=int, str=str, list=list)
+    return dict(int=int, str=str, list=list, len=len)
 
 
 @app.context_processor
