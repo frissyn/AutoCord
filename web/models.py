@@ -8,10 +8,13 @@ from flask_login import UserMixin
 
 
 def is_admin(i: str):
-    if i in ADMINS:
-        return True
-    else:
-        return False
+    for s in ADMINS:
+        if i == str(s):
+            return True
+        else:
+            continue
+    
+    return False
 
 
 class User(db.Model, UserMixin):
