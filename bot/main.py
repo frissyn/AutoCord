@@ -1,15 +1,19 @@
-# import json
-# import asyncio
+import web
+import json
+
 import discord
-
-from bot import COLOR
-from bot import autocord
-
-from bot.util import permission_map
-
 from discord import Embed
 
+from bot import COLOR
+from bot import ADMINS
+from bot import autocord
+from bot.util import permission_map
+
 from datetime import datetime
+
+
+with open("web/db/notifs.json", "r") as file:
+    notifTemps = json.load(file)
 
 
 @autocord.command(name="bot")
@@ -27,6 +31,37 @@ async def bot_page(ctx, m: discord.Member):
             description=f"**{m.display_name}** is not a Bot User!",
             color=COLOR,
         )
+
+    await ctx.send(embed=em)
+
+
+@autocord.command(name="conflict")
+async def conflict(ctx, prefix: str, count: int):
+    for a in ADMINS:
+        notif = web.models.Notification()
+        temp = notifTemps["conflict"]
+
+        notif.user_id = str(a)
+        notif.is_action = True
+        notif.title = temp["title"].format(name=ctx.author.name)
+        notif.body = temp["body"].format(
+            name = ctx.author.name,
+            discrim = ctx.author.discriminator,
+            timestamp = datetime.now(),
+            count = count,
+            prefix = prefix,
+        )
+
+        web.db.session.add(notif)
+        web.db.session.commit()
+    
+    em = Embed(
+        title="Prefix Conflict Reported!",
+        description=f"A report has been sent to the admins that"
+        + f" {count} or more bots have the prefix `{prefix}`.\n"
+        + "Thanks for your help!",
+        color=COLOR,
+    )
 
     await ctx.send(embed=em)
 

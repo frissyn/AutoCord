@@ -1,0 +1,6 @@
+{
+    "conflict": {
+        "title": "{name} has reported a Bot Prefix conflict!",
+        "body": "On {timestamp}, {name}#{discrim} reported that {count} or more bots have a the conflicting prefix: {prefix}."
+    }
+}
