@@ -52,21 +52,10 @@
                 </div>
                 <div class="message-body darken">
                     {% for notif in notifs %}
-                    <div class="modal">
-                        <div class="modal-background"></div>
-                        <div class="modal-card">
-                            <header class="modal-card-head">
-                                <p class="modal-card-title">{{ notif.title }}</p>
-                                <button class="delete" aria-label="close"></button>
-                            </header>
-                            <section class="modal-card-body">
-                                {{ notif.body }}
-                            </section>
-                            <footer class="modal-card-foot">
-                                <button class="button is-primary">Clear Notification</button>
-                                <button class="button">Canel</button>
-                            </footer>
-                        </div>
+                    <div class="notification is-dark">
+                        <button class="delete"></button>
+                        <h3 class="subtitle">{{ notif.title }}</h3>
+                        {{ notif.body }}
                     </div>
                     {% endfor %}
                 </div>
