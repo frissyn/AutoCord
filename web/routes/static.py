@@ -19,8 +19,9 @@ def index():
 @app.route("/dashboard")
 @login_required
 def dashboard():
-    notifs = Notification.query.filter_by(user_id=current_user.id)
-    return flask.render_template("dash.html", notifs=notifs)
+    notifs = Notification.query.filter_by(user_id=current_user.id).all()
+    print(notifs)
+    return flask.render_template("dash.html", notifs=list(notifs))
 
 
 @app.route("/info")
