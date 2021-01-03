@@ -41,6 +41,8 @@ async def conflict(ctx, prefix: str, count: int):
         notif = web.models.Notification()
         temp = notifTemps["conflict"]
 
+        web.db.session.add(notif)
+        
         notif.user_id = str(a)
         notif.is_action = True
         notif.title = temp["title"].format(name=ctx.author.name)
@@ -52,7 +54,6 @@ async def conflict(ctx, prefix: str, count: int):
             prefix = prefix,
         )
 
-        web.db.session.add(notif)
         web.db.session.commit()
     
     em = Embed(

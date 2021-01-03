@@ -4,9 +4,12 @@ from web import app
 
 from bot import autocord
 
+from flask_login import current_user
+from flask_login import login_required
+
 from bot.util import get_bots
 from bot.util import permission_map
-
+from web.models import Notification
 
 @app.route("/")
 def index():
@@ -14,8 +17,10 @@ def index():
 
 
 @app.route("/dashboard")
+@login_required
 def dashboard():
-    return flask.render_template("dash.html")
+    notifs = Notification.query.filter_by(user_id=current_user.id)
+    return flask.render_template("dash.html", notifs=notifs)
 
 
 @app.route("/info")
