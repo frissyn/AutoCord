@@ -179,7 +179,7 @@ async def help(ctx, cat=None):
         )
 
         for cat, desc in CMD["categories"].items():
-            c = format_cmd(f"--help <{cat}>")
+            c = format_cmd(f"--help {cat}")
             em.add_field(
                 name=f"**{cat.title()} Commands:**",
                 value=f"{c}*{desc}*\n",
@@ -194,8 +194,8 @@ async def help(ctx, cat=None):
 
         for cmd, desc in CMD[cat].items():
             em.add_field(
-                name=f"{format_cmd(cmd)}",
-                value=f"{desc}",
+                name=f"{cmd.title()}",
+                value=f"{format_cmd(cmd)}\n{desc}",
                 inline=False
             )
     

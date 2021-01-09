@@ -43,6 +43,6 @@ def permission_map(i: int):
 
 
 def format_cmd(cmd: str):
-    r = f"```bash\n{cmd}\n```\n"
+    r = f"```bash\n{cmd}\n```"
 
     return r
