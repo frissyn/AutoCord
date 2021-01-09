@@ -40,3 +40,9 @@ def permission_map(i: int):
     del perm_map["value"]
 
     return [(k, v) for k, v in perm_map.items()]
+
+
+def format_cmd(cmd: str):
+    r = f"```bash\n{cmd}\n```\n"
+
+    return r

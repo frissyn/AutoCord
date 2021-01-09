@@ -27,7 +27,7 @@ with open("web/db/permissions.txt", "r") as fh:
 
 intents.members = True
 intents.presences = True
-autocord = Bot(command_prefix="a&", intents=intents)
+autocord = Bot(command_prefix="--", intents=intents)
 autocord.remove_command("help")
 
 
