@@ -19,26 +19,8 @@ from datetime import datetime
 with open("web/db/notifs.json", "r") as file:
     notifTemps = json.load(file)
 
-
-CMD = {
-    "categories": {
-        "general": "Contains the general command for AutoCord interactions.",
-        "reporting": "Contains commands for reporting info to the admins",
-        "misc": "Contains commands that don't fit into the other categories."
-    },
-    "general": {
-        "--bot <user>": "Returns the link to a User Bot's information page.",
-        "--library": "Returns the link to the index of all User Bots",
-        "--permissions": "Returns all permission values for a User Bot.",
-        "--status": "Returns number of Online and Offline User Bots."
-    },
-    "reporting": {
-        "--conflict <prefix> <num>": "Report the number of bots that share a prefix.",
-    },
-    "misc": {
-        "--ping": "Pings the AutoCord bot and returns ping latency."
-    }
-}
+with open("web/db/commands.json", "r") as file:
+    CMD = json.load(file)
 
 
 @autocord.command(name="bot")
@@ -181,7 +163,7 @@ async def help(ctx, cat=None):
         for cat, desc in CMD["categories"].items():
             c = format_cmd(f"--help {cat}")
             em.add_field(
-                name=f"**{cat.title()} Commands:**",
+                name=f"**{cat.title()} Category:**",
                 value=f"{c}*{desc}*\n",
                 inline=False
             )
@@ -192,10 +174,10 @@ async def help(ctx, cat=None):
             color=COLOR
         )
 
-        for cmd, desc in CMD[cat].items():
+        for cmd in CMD[cat]:
             em.add_field(
-                name=f"{cmd.title()}",
-                value=f"{format_cmd(cmd)}\n{desc}",
+                name=f"{cmd['name'].title()}",
+                value=f"{format_cmd(cmd['cmd'])}{cmd['desc']}",
                 inline=False
             )
     

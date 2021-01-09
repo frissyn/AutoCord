@@ -1,0 +1,44 @@
+{
+    "categories": {
+        "general": "Contains the general command for AutoCord interactions.",
+        "reporting": "Contains commands for reporting info to the admins",
+        "misc": "Contains commands that don't fit into the other categories."
+    },
+
+    "general": [
+        {
+            "name": "bot",
+            "desc": "Returns the link to a User Bot's information page.",
+            "cmd": "--bot <user>"
+        },
+        {
+            "name": "library",
+            "desc": "Returns the link to the index of all User Bots.",
+            "cmd": "--library"
+        },
+        {
+            "name": "permissions",
+            "desc": "Returns all permission values for a User Bot.",
+            "cmd": "--permissions <user>"
+        },
+        {
+            "name": "status",
+            "desc": "Returns number of Online and Offline User Bots.",
+            "cmd": "--status"
+        }
+    ],
+    "reporting": [
+        {
+            "name": "conflict",
+            "desc": "Report the number of bots that share a prefix.",
+            "cmd": "--conflict <prefix> <num>"
+        }
+    ],
+    "misc": [
+        {
+            "name": "ping",
+            "desc": "Pings the AutoCord bot and returns ping latency.",
+            "cmd": "--ping"
+        }
+    ]
+}
