@@ -16,10 +16,10 @@ from bot.util import permission_map
 from datetime import datetime
 
 
-with open("web/db/notifs.json", "r") as file:
+with open("web/db/json/notifs.json", "r") as file:
     notifTemps = json.load(file)
 
-with open("web/db/commands.json", "r") as file:
+with open("web/db/json/commands.json", "r") as file:
     CMD = json.load(file)
 
 

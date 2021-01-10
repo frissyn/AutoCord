@@ -17,11 +17,11 @@ TOKEN = os.environ["BOT_SECRET"]
 modules = glob.glob(join(dirname(__file__), "*.py"))
 intents = discord.Intents.default()
 
-with open("web/db/admins.txt", "r") as fh:
+with open("web/db/txt/admins.txt", "r") as fh:
     names = fh.read()
     ADMINS = [n.split("--")[0] for n in names.split("\n")]
 
-with open("web/db/permissions.txt", "r") as fh:
+with open("web/db/txt/permissions.txt", "r") as fh:
     perms = fh.read()
     PERMISSIONS = [p for p in perms.split("\n")]
 
