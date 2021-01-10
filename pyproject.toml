@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "autocord"
+name = "AutoCord"
 version = "0.1.0"
-description = ""
-authors = ["Your Name <you@example.com>"]
+description = "User Bot manager for the Replit Discord Server."
+authors = ["IreTheKID", "Codemonkey51", "JDOG787", "minx28"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
