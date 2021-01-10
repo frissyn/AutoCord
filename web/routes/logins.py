@@ -1,5 +1,5 @@
 import flask
-import authcord
+import auth
 
 from web import db
 from web import app
@@ -13,7 +13,7 @@ from flask_login import logout_user
 
 @app.route("/login")
 def login_base():
-    dlink = authcord.get_request_uri()
+    dlink = auth.get_request_uri()
 
     return flask.redirect(dlink)
 
@@ -27,9 +27,9 @@ def logout():
 @app.route("/login/callback")
 def login_callback():
     code = flask.request.args.get("code")
-    token = authcord.parse_token(authcord.exchange_code(code))
+    token = auth.parse_token(auth.exchange_code(code))
 
-    d = authcord.req("GET", "/users/@me", "Bearer", token)
+    d = auth.req("GET", "/users/@me", "Bearer", token)
     user = User.query.filter_by(id=d["id"]).first()
 
     if not user:
@@ -41,7 +41,7 @@ def login_callback():
     user.id = d["id"]
     user.id_type = "Discord"
     user.name = d["username"]
-    user.pfp = authcord.IMG_BASE.format(d["id"], d["avatar"], 128)
+    user.pfp = auth.IMG_BASE.format(d["id"], d["avatar"], 128)
     user.is_admin = is_admin(d["id"])
 
     db.session.commit()
