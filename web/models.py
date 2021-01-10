@@ -54,4 +54,4 @@ class Notification(db.Model):
     user_id = db.Column(db.String, db.ForeignKey("user.id"))
 
     def __repr__(self):
-        return f"<Notification <{self.body}>>"
+        return f"<Notification @user_id:{self.user_id} @body:<{self.body}>>"
