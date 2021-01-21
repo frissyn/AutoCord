@@ -13,7 +13,7 @@ As stated before, anyone with a *Helper* role in the Discord server can conribut
 
 ## Current Project Members
 
-+ [IreTheKID](https://github.com/IreTheKID)
++ [frissyn](https://github.com/frissyn)
 + [Codemonkey51](https://github.com/Codemonkey51)
 + [JDOG787](https://github.com/JDOG787)
 + [minx28](https://github.com/minx28)
